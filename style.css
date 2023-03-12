@@ -72,69 +72,45 @@ header {
   transition: 0.3s;
 }
 
-main{
-  padding: 20px;
+.container{
+  padding: 30px 40px;
 }
 
-main #add-employee{
-  max-width: 160px;
-  border: 1px solid #00254b;
-  border-radius: 15px ;
-  background-color: #ff9966;    
-  padding: 7px 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  color: #001f3f;
-  cursor: pointer;
-  margin: 0 0 15px 0;
-}
-
-#overlay {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  background-color: #00254be6;
-  overflow-x: hidden;
-  transition: 0.5s;;
-}
-#overlay #employee-form h1{
+.form h1{
   text-align: center;
   color: #ff9966;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0 0 20px 0;
 }
 
-#employee-form {
-  min-width: 200px;
-  max-width: 450px;
-  background-color: #00254b;
-  padding: 30px 50px;
-  margin: 0 auto;
-  border: 2px solid #ff9966;
-  border-radius: 20px;
-  box-shadow: 10px 10px 18px -3px #f08080b0;
-  position: relative;
-  top: 5%; 
-  text-align: center; 
-}
+.form {
+  /* background-color: #00254b; */
+  /* padding: 30px 50px; */
+  /* margin: 0 auto; */
+  /* border: 2px solid #ff9966;
+  border-radius: 20px; */
+  /* box-shadow: 10px 10px 18px -3px #f08080b0; */
+  /* position: relative; */
+  /* top: 5%;  */
+  /* text-align: center;  */
+  max-width: 500px;
+} 
 
-#employee-form label {
+.form label {
   font-size: 1.4em;
   font-family: 'Source Sans Pro', sans-serif;
-  color: white;
+  color: black;
   text-align: left;
   display: block;
   margin: 0 0 10px 0;
 }
 
-#employee-form input{
-  width: 350px;
+.form input,
+.form textarea {
+  width: 100%;
+  display: inline-block;
   padding: 9px 12px;
   background-color: #85c1e952;
   border: none;
@@ -145,75 +121,99 @@ main #add-employee{
   font-size: 1.1em;
 }
 
-#employee-form #submit-button {
+.form .submit-btn {
   width: 160px;
   background-color: #f18f5e;
   cursor: pointer;
 }
 
-#overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-  text-decoration: none;
+.form .submit-button {
+  display: none;
+}
+
+
+/* Set font size and family */
+table {
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Style table headers */
+.table-header {
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+}
+
+.table-header th {
+  padding: 12px;
+}
+
+/* Style table rows */
+.table-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-row td {
+  padding: 12px;
+  overflow-x: auto;
+}
+
+/* Style delete, edit, and complete buttons */
+.delete-btn,
+.edit-btn,
+.status {
+  background-color: #f44336; /* Red */
+  border: none;
   color: white;
-}
-
-.employee {
-  background-color: #f5faff;
-  padding: 15px 20px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.employee div {
-  margin-bottom: 5px;
-  font-family: 'Source Sans Pro', sans-serif;
-  border-bottom: 1px solid #00254b;
-  margin: 10px 0;
-}
-
-.employee div:first-child{
-  margin-top: 0;
-}
-
-.employee div:last-child{
-  margin-bottom: 0;
-}
-
-.employee .label {
-  color: #001f3f;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.3em;
-}
-
-.employee .delete-employee-button {
-  max-width: 140px;
-  border: 1px solid #00254b;
-  border-radius: 15px ;
-  background-color: #ff9966;    
-  padding: 7px 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  color: #001f3f;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0;
   cursor: pointer;
-  margin: 10px 10px 0 0;
+  border-radius: 4px;
 }
 
-@media screen and (max-height: 450px) {
-  .overlay a {
-    font-size: 20px
+.delete-btn:hover,
+.edit-btn:hover,
+.status:hover {
+  background-color: #d33f2f; /* Darker red */
+}
+
+/* Position buttons at the end of the row */
+.table-row td:last-child {
+  text-align: right;
+}
+
+
+
+/* Responsive adjustments for small screens */
+@media screen and (max-width: 600px) {
+  table {
+    font-size: 14px;
+    max-width: 500px;
   }
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
+
+  .table-row td {
+    padding: 8px;
   }
-  .sidebar {
-    padding-top: 15px;
+
+  .delete-btn,
+  .edit-btn,
+  .status {
+    font-size: 14px;
+    padding: 6px 12px;
+    margin: 2px;
   }
-  .sidebar a {
-    font-size: 18px;
+
+  /* Reduce width of description column */
+  .table-row td:nth-child(2) {
+    width: 40%;
   }
 }
